@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/1.7.0_admin_view_users.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <title>View Users</title>
+</head>
+
+<body>
+    <div id="main">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+            <div class="container-fluid" style="width:80%">
+                <a class="navbar-brand" href="/adminhome">Library Management System</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <form class="d-flex" role="search" action="/adminsearch" method="post">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_query">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    </ul>
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/admindash">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/checkrequests">Requests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/transactionshistory">History</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/viewusers">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/adminstats">Stats</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/adminlogout">Logout</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+
+        <div id="canvas">
+
+
+
+            <h2>Users</h2>
+            {% if users | length != 0 %}
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">User Name</th>
+                            <th scope="col">Max Books Allowed</th>
+                            <th scope="col">View Requests</th>
+                            <th scope="col">View Transactions</th>
+                            <th scope="col">Deactivate</th>
+                          </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <th scope="row">{{loop.index}}</th>
+                            <td>{{user.username}}</td>
+                            <td>{{user.max_books_allowed}}</td>
+                            <td><a href="/viewuserrequests/{{user.id}}"><button type="button" class="btn btn-primary">View Requests</button></a></td>
+                            <td><a href="/viewusertrans/{{user.id}}"><button type="button" class="btn btn-secondary">View Transactions</button></a></td>
+                            {% if user.is_active == True %}
+                                <td><a href="/deactivateuser/{{user.id}}/deactivate"><button type="button" class="btn btn-danger">Deactivate</button></a></td>
+                            {% else %}
+                                <td><a href="/deactivateuser/{{user.id}}/activate"><button type="button" class="btn btn-success">Activate</button></a></td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+                <br>
+                <br>
+                <h4>No User Found</h4>
+            {% endif %}
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
