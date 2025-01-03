@@ -11,11 +11,11 @@ visualizations.
 Demonstrate Database Systems and Model-View-Controller Architecture understanding.
 
 ### Frameworks and libraries
-- Flask                          Micro web framework for building web applications in Python.
-- Flask-SQLAlchemy               for database management, it simplifies database interactions.
-- Flask-RESTful                  for creating RESTful APIs.
-- Flask-Login                    Provides user session management, authentication, and authorization.
-- Matplotlib                     Python plotting library for creating graphs.
+- **Flask** : Micro web framework for building web applications in Python.
+- **Flask-SQLAlchemy** : for database management, it simplifies database interactions.
+- **Flask-RESTful** : for creating RESTful APIs.
+- **Flask-Login** : Provides user session management, authentication, and authorization.
+- **Matplotlib** : Python plotting library for creating graphs.
 
 ### Procedures
 - First wrote the requirements and used Entity Relationship Model for defining entities and their relationships
