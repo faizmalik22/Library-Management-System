@@ -1,0 +1,25 @@
+*{
+    margin: 0px;
+}
+/* #main, #canvas{
+    border: 2px solid black;
+} */
+#canvas{
+    width: 80%;
+    margin: auto;
+    /* height: 900px; */
+    padding: 10px;
+    margin-top: 70px;
+}
+.headings{
+    margin: 3px;
+    padding-left: 5px;
+}
+
+tr{
+    text-align: center;
+}
+
+h4{
+    margin-left: 30px;
+}

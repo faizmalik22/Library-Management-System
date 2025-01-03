@@ -1,0 +1,20 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* #main, #canvas{
+    border: 2px solid black;
+} */
+
+#canvas{
+    width: 80%;
+    margin: auto;
+    height: 800px;
+    padding: 10px;
+}
+
+.error{
+    margin-top: 100px;
+    font-size: 50px;
+}
